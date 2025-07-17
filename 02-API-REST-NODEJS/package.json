@@ -12,6 +12,7 @@
   "description": "",
   "devDependencies": {
     "@types/node": "^24.0.14",
+    "prisma": "^6.12.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
@@ -22,4 +23,3 @@
     "sqlite3": "^5.1.7"
   }
 }
-  
