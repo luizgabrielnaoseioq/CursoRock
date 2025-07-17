@@ -15,3 +15,22 @@ model User {
   name      String
   email     String   @unique
 }
+
+model CheckIn {
+  @@map("check_ins")
+
+  id        String   @id @default(uuid())
+  create_at DateTime @default(now())
+  validated_at DateTime?
+}
+
+model  Gym {
+  @@map("gyms")
+
+  id        String   @id @default(uuid())
+  title String
+  description String?
+  phone String?
+  latitude Decimal
+  longitude Decimal
+}
