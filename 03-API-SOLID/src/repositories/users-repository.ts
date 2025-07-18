@@ -1,6 +1,7 @@
 import { Prisma, User } from 'generated/prisma'
 
-export interface UserRepository {
+export interface UsersRepository {
   findByEmail(email: string): Promise<User | null>
+  findByPassword(password: string): Promise<User | null>
   create(data: Prisma.UserCreateInput): Promise<User>
 }
