@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma'
 import { Prisma } from 'generated/prisma'
+import { UserRepository } from '../users-repository'
 
 /**
  * Este arquivo define o repositório de usuários utilizando o Prisma ORM.
@@ -19,7 +20,17 @@ import { Prisma } from 'generated/prisma'
  * facilitando a manutenção e possíveis trocas de implementação futura.
  */
 
-export class PrismaUsersRepository {
+export class PrismaUsersRepository implements UserRepository {
+  async findByEmail(email: string) {
+    const user = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    })
+
+    return user
+  }
+
   async create(data: Prisma.UserCreateInput) {
     const user = await prisma.user.create({
       data,
